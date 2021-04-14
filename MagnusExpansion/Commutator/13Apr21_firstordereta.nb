@@ -1,0 +1,59 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1472,         49]
+NotebookOptionsPosition[      1123,         35]
+NotebookOutlinePosition[      1520,         51]
+CellTagsIndexPosition[      1477,         48]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "Calculate commutators for the Magnus expansion for ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association[
+    "boxes" -> None, "errors" -> {}, "input" -> "", "state" -> "TeX"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "82c07f14-7c07-402a-b9b5-93172fdc7db4"],
+ "\[LineSeparator]"
+}], "Title",
+ CellChangeTimes->{{3.827289301970284*^9, 3.827289400952503*^9}, {
+  3.827289558722536*^9, 3.827289645462346*^9}, {3.8272897036855383`*^9, 
+  3.8272897141679783`*^9}},ExpressionUUID->"f6a6195a-6f7b-4440-98b1-\
+8a9bde6fa700"]
+},
+WindowSize->{808, 703},
+WindowMargins->{{99, Automatic}, {Automatic, 13}},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"61f57c1f-187e-4e47-8aff-ad4c32af0237"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 561, 13, 296, "Title",ExpressionUUID->"f6a6195a-6f7b-4440-98b1-8a9bde6fa700"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

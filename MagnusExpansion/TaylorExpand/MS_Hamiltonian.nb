@@ -1,0 +1,356 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13025,        346]
+NotebookOptionsPosition[     11352,        315]
+NotebookOutlinePosition[     11750,        331]
+CellTagsIndexPosition[     11707,        328]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ME expansion on Hamiltonian", "Title",
+ CellChangeTimes->{{3.82732081566957*^9, 
+  3.827320821132634*^9}},ExpressionUUID->"bcccb902-8955-4068-a924-\
+e11b8400b54a"],
+
+Cell["Writing out the MS gate Hamiltonian", "Subtitle",
+ CellChangeTimes->{{3.827320864082636*^9, 
+  3.8273208707784147`*^9}},ExpressionUUID->"659f00de-7d3f-456c-a5bf-\
+9c46bbf16511"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association["boxes" -> FormBox[
+       RowBox[{
+         StyleBox["H", "TI"], "\[LongEqual]", 
+         StyleBox["f", "TI"], 
+         RowBox[{"(", 
+           StyleBox["t", "TI"], ")"}], 
+         SubscriptBox[
+          StyleBox["S", "TI"], "+"], "exp", 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["i", "TI"], "\[Eta]", 
+             RowBox[{"(", 
+               RowBox[{
+                 StyleBox["a", "TI"], 
+                 SuperscriptBox[
+                  StyleBox["e", "TI"], 
+                  RowBox[{"-", 
+                    StyleBox["i", "TI"], 
+                    StyleBox["v", "TI"], 
+                    StyleBox["t", "TI"]}]], "+", 
+                 SuperscriptBox[
+                  StyleBox["a", "TI"], "\[Dagger]"], 
+                 SuperscriptBox[
+                  StyleBox["e", "TI"], 
+                  RowBox[{
+                    StyleBox["i", "TI"], 
+                    StyleBox["v", "TI"], 
+                    StyleBox["t", "TI"]}]]}], ")"}]}], ")"}], "+", 
+         StyleBox["H.c.", FontSlant -> "Plain"]}], TraditionalForm], 
+     "errors" -> {}, "input" -> 
+     "H=f(t) S_{+} \\exp \\left(i \\eta\\left(a e^{-i v t}+a^{\\dagger} e^{i \
+v t}\\right)\\right)+\\mathrm{H.c.}", "state" -> "Boxes"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "41d89c3c-f9b6-4124-976f-05a0f32a5ff5"],
+ "\n\nThis is the Hamiltonian in the interaction picture for one motional \
+mode driven by an external laser\nWe can express the exponential function as \
+:\n\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association["boxes" -> FormBox[
+       RowBox[{"exp", 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["i", "TI"], "\[Eta]", 
+             RowBox[{"(", 
+               RowBox[{
+                 StyleBox["a", "TI"], 
+                 SuperscriptBox[
+                  StyleBox["e", "TI"], 
+                  RowBox[{"-", 
+                    StyleBox["i", "TI"], 
+                    StyleBox["v", "TI"], 
+                    StyleBox["t", "TI"]}]], "+", 
+                 SuperscriptBox[
+                  StyleBox["a", "TI"], "\[Dagger]"], 
+                 SuperscriptBox[
+                  StyleBox["e", "TI"], 
+                  RowBox[{
+                    StyleBox["i", "TI"], 
+                    StyleBox["v", "TI"], 
+                    StyleBox["t", "TI"]}]]}], ")"}]}], ")"}], "\[LongEqual]", 
+         
+         SuperscriptBox[
+          StyleBox["e", "TI"], 
+          RowBox[{"-", 
+            SuperscriptBox["\[Eta]", "2"], "/", "2"}]], 
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{
+            StyleBox["k", "TI"], "\[LongEqual]", "-", "\[Infinity]"}], 
+          "\[Infinity]", LimitsPositioning -> True], 
+         SubscriptBox[
+          StyleBox["D", "TI"], 
+          StyleBox["k", "TI"]], 
+         RowBox[{"(", "\[Eta]", ")"}], 
+         SuperscriptBox[
+          StyleBox["e", "TI"], 
+          RowBox[{
+            StyleBox["i", "TI"], 
+            StyleBox["k", "TI"], 
+            StyleBox["v", "TI"], 
+            StyleBox["t", "TI"]}]]}], TraditionalForm], "errors" -> {}, 
+     "input" -> 
+     "\\exp \\left(i \\eta\\left(a e^{-i v t}+a^{\\dagger} e^{i v \
+t}\\right)\\right)=e^{-\\eta^{2} / 2} \\sum_{k=-\\infty}^{\\infty} \
+D_{k}(\\eta) e^{i k v t}", "state" -> "Boxes"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "35bb6ef5-61e9-44ba-8f19-c829ae3fe22b"],
+ "\nwhere \n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association["boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["D", "TI"], 
+          StyleBox["k", "TI"]], 
+         RowBox[{"(", "\[Eta]", ")"}], "\[LongEqual]", 
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{
+            StyleBox["n", "TI"], "\[LongEqual]", "0"}], "\[Infinity]", 
+          LimitsPositioning -> True], 
+         SuperscriptBox[
+          RowBox[{"(", 
+            RowBox[{
+              StyleBox["i", "TI"], "\[Eta]"}], ")"}], 
+          RowBox[{"2", 
+            StyleBox["n", "TI"], "+", 
+            StyleBox["k", "TI"]}]], 
+         FractionBox[
+          SuperscriptBox[
+           StyleBox["a", "TI"], 
+           SuperscriptBox["\[Dagger]", 
+            RowBox[{
+              StyleBox["n", "TI"], "+", 
+              StyleBox["k", "TI"]}]]], 
+          RowBox[{
+            RowBox[{"(", 
+              RowBox[{
+                StyleBox["n", "TI"], "+", 
+                StyleBox["k", "TI"]}], ")"}], "!"}]], 
+         FractionBox[
+          SuperscriptBox[
+           StyleBox["a", "TI"], 
+           StyleBox["n", "TI"]], 
+          RowBox[{
+            StyleBox["n", "TI"], "!"}]], "  ", " for ", 
+         StyleBox["k", "TI"], "\[GreaterEqual]", "0"}], TraditionalForm], 
+     "errors" -> {}, "input" -> 
+     "\\mathcal{D}_{k}(\\eta)=\\sum_{n=0}^{\\infty}(i \\eta)^{2 n+k} \
+\\frac{a^{\\dagger^{n+k}}}{(n+k) !} \\frac{a^{n}}{n !} \\quad \\text { for } \
+k \\geq 0", "state" -> "Boxes"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "e2db491b-31c2-4316-83b6-4956b277cbbf"],
+ "\nand also \n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association["boxes" -> FormBox[
+       SubsuperscriptBox[
+        StyleBox["D", "TI"], 
+        StyleBox["k", "TI"], "\[Dagger]"], TraditionalForm], "errors" -> {}, 
+     "input" -> "D_k^{\\dagger}", "state" -> "Boxes"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "04699e20-eee5-4b2b-a07d-2bde4479dbb4"],
+ "\nIn this notebook, I will attempt to perform the taylor expansion on the \
+Hamiltonian and obtain certain order terms which can be fed into a Magnus \
+expansion solver, producing the conditions for the driving profiles of the \
+laser beams. \n\nFirst, start with the ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association["boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["D", "TI"], 
+          StyleBox["k", "TI"]], "(", "\[Eta]", ")"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "$D_k(\\eta)$", "state" -> "Boxes"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "b434b804-9ab4-421e-babc-bb0298e43cc0"],
+ " terms and set ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association["boxes" -> FormBox[
+       RowBox[{
+         StyleBox["k", "TI"], "\[LongEqual]", "1"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "$k = 1$", "state" -> "Boxes"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "e71626f0-d7bd-4df9-bebd-7e3d8bcfd95c"]
+}], "Text",
+ CellChangeTimes->{{3.8273208863316517`*^9, 3.827320906876981*^9}, {
+  3.827320984742153*^9, 3.827321089447027*^9}, {3.827321121303946*^9, 
+  3.8273211853071327`*^9}, {3.827375405904628*^9, 3.8273754454495783`*^9}, {
+  3.827375510718808*^9, 
+  3.8273755160146093`*^9}},ExpressionUUID->"123c32e5-5775-4672-8d0d-\
+87285e13f03f"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.827321118410727*^9, 3.827321119312729*^9}, {
+  3.8273754035124693`*^9, 
+  3.827375404537374*^9}},ExpressionUUID->"225c6f53-231b-4d93-9cec-\
+87f230559339"],
+
+Cell[BoxData[
+ RowBox[{
+  UnderoverscriptBox["\[Sum]", 
+   RowBox[{"n", "=", "0"}], "\[Infinity]"], 
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{"I", " ", "\[Eta]"}], ")"}], 
+    RowBox[{
+     RowBox[{"2", "n"}], "+", "1"}]], 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["a\[Dagger]", 
+      RowBox[{"n", "+", "1"}]], 
+     SuperscriptBox["a", "n"]}], 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"n", "+", "1"}], ")"}], "!"}], "*", 
+     RowBox[{"n", "!"}]}]]}]}]], "Input",
+ CellChangeTimes->{{3.827321343480257*^9, 3.827321432515046*^9}, {
+  3.827321470155341*^9, 3.8273215669500437`*^9}, {3.8273233611799088`*^9, 
+  3.827323456734901*^9}, {3.82732355765281*^9, 3.8273235670506887`*^9}, {
+  3.8273236633519583`*^9, 3.8273236660788717`*^9}, {3.8273753652997217`*^9, 
+  3.827375382945664*^9}},ExpressionUUID->"c13d7b85-a586-4a34-8b3c-\
+3ff0fc7bf37f"],
+
+Cell["Write out the first two terms", "Text",
+ CellChangeTimes->{{3.827375376418106*^9, 3.8273753943209467`*^9}, {
+  3.827375475046775*^9, 
+  3.827375476679118*^9}},ExpressionUUID->"18930d7a-d3c0-4339-b0ac-\
+68da95ab0945"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Sum", "[", 
+  RowBox[{
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"I", " ", "\[Eta]"}], ")"}], 
+     RowBox[{
+      RowBox[{"2", "n"}], "+", "1"}]], 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["a\[Dagger]", 
+       RowBox[{"n", "+", "1"}]], 
+      SuperscriptBox["a", "n"]}], 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"n", "+", "1"}], ")"}], "!"}], "*", 
+      RowBox[{"n", "!"}]}]]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.827323736473876*^9, 3.827323799745667*^9}, {
+  3.82737530579559*^9, 3.827375345370562*^9}, {3.827375460001874*^9, 
+  3.827375460103685*^9}},
+ CellLabel->"In[82]:=",ExpressionUUID->"b114d29f-344f-4fdc-bfb0-a398564fb7c0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[ImaginaryI]", " ", "a\[Dagger]", " ", "\[Eta]"}], "-", 
+  RowBox[{
+   FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", "a", " ", 
+   SuperscriptBox["a\[Dagger]", "2"], " ", 
+   SuperscriptBox["\[Eta]", "3"]}]}]], "Output",
+ CellChangeTimes->{{3.827323746547989*^9, 3.8273238001738577`*^9}, {
+   3.827375307291182*^9, 3.827375345819015*^9}, 3.82737546050478*^9},
+ CellLabel->"Out[82]=",ExpressionUUID->"1ae4f3cf-f304-41b9-b9d6-4d7a7ee1aefa"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.8273234971267853`*^9, 3.827323502740471*^9}},
+ NumberMarks->False,ExpressionUUID->"58f18c1b-bfd8-4193-a98b-f2090aa066f0"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.827323513029006*^9, 
+  3.8273235130301113`*^9}},ExpressionUUID->"cdac4ea5-e2bf-4d59-a205-\
+6173e25f3e4c"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.827323498717888*^9},
+ NumberMarks->False,ExpressionUUID->"df3709ca-31cf-4572-a325-ee56a8e924dc"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.827323511613029*^9, 
+  3.827323511613801*^9}},ExpressionUUID->"ce644dbc-a0fd-4bb4-9a2f-\
+4cc0e5d127b4"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.827323500325839*^9},
+ NumberMarks->False,ExpressionUUID->"c0f5ca3a-7f1c-4b07-bea1-105e45633448"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.827323505501177*^9, 
+  3.827323510044964*^9}},ExpressionUUID->"75a12745-8393-4ce8-b8cc-\
+9dd7d9d4c542"]
+}, Open  ]]
+},
+WindowSize->{808, 700},
+WindowMargins->{{Automatic, 299}, {Automatic, 23}},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6736f62c-abe4-4269-bd40-e64ff59c356e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 169, 3, 98, "Title",ExpressionUUID->"bcccb902-8955-4068-a924-e11b8400b54a"],
+Cell[752, 27, 183, 3, 53, "Subtitle",ExpressionUUID->"659f00de-7d3f-456c-a5bf-9c46bbf16511"],
+Cell[938, 32, 6826, 174, 409, "Text",ExpressionUUID->"123c32e5-5775-4672-8d0d-87285e13f03f"],
+Cell[7767, 208, 203, 4, 30, "Input",ExpressionUUID->"225c6f53-231b-4d93-9cec-87f230559339"],
+Cell[7973, 214, 891, 25, 56, "Input",ExpressionUUID->"c13d7b85-a586-4a34-8b3c-3ff0fc7bf37f"],
+Cell[8867, 241, 222, 4, 35, "Text",ExpressionUUID->"18930d7a-d3c0-4339-b0ac-68da95ab0945"],
+Cell[CellGroupData[{
+Cell[9114, 249, 795, 24, 52, InheritFromParent,ExpressionUUID->"b114d29f-344f-4fdc-bfb0-a398564fb7c0"],
+Cell[9912, 275, 478, 9, 50, "Output",ExpressionUUID->"1ae4f3cf-f304-41b9-b9d6-4d7a7ee1aefa"]
+}, Open  ]],
+Cell[10405, 287, 170, 2, 30, "Input",ExpressionUUID->"58f18c1b-bfd8-4193-a98b-f2090aa066f0"],
+Cell[10578, 291, 154, 3, 30, InheritFromParent,ExpressionUUID->"cdac4ea5-e2bf-4d59-a205-6173e25f3e4c"],
+Cell[10735, 296, 144, 2, 30, "Input",ExpressionUUID->"df3709ca-31cf-4572-a325-ee56a8e924dc"],
+Cell[10882, 300, 152, 3, 30, InheritFromParent,ExpressionUUID->"ce644dbc-a0fd-4bb4-9a2f-4cc0e5d127b4"],
+Cell[11037, 305, 144, 2, 30, "Input",ExpressionUUID->"c0f5ca3a-7f1c-4b07-bea1-105e45633448"],
+Cell[11184, 309, 152, 3, 30, InheritFromParent,ExpressionUUID->"75a12745-8393-4ce8-b8cc-9dd7d9d4c542"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

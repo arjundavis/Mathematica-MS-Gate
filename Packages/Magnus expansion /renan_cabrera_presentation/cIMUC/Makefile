@@ -1,0 +1,17 @@
+#
+# -lstdc
+CC = c++
+
+ARMDILLOFLAGS = -01
+MAGNUSINCLUDE = -I/home/cabrer7/Documents/source/mathematica/magnus/cIMUC
+
+a.out: main.o  magnus.o
+	$(CC)   main.o  magnus.o  -Wno-deprecated
+
+magnus.o: magnus.cc magnus.h 
+	$(CC)  -Wno-deprecated -I/usr/local/include $(MAGNUSINCLUDE)  -c magnus.cc 
+
+main.o: main.cc  magnus.h
+	$(CC)  -Wno-deprecated -I/usr/local/include $(MAGNUSINCLUDE)  -c main.cc
+
+
