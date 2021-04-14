@@ -1,0 +1,515 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17735,        507]
+NotebookOptionsPosition[     16362,        474]
+NotebookOutlinePosition[     16759,        490]
+CellTagsIndexPosition[     16716,        487]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Magnus Expansion of MS gate Hamiltonian v2", "Title",
+ CellChangeTimes->{{3.82739112777525*^9, 
+  3.827391137214273*^9}},ExpressionUUID->"c70dcb02-a98f-453d-8499-\
+15b2f2f41ca9"],
+
+Cell["Writing out the MS gate Hamiltonian", "Subtitle",
+ CellChangeTimes->{{3.8273911431499434`*^9, 
+  3.827391153703377*^9}},ExpressionUUID->"f112a71f-f8c7-45ef-bef1-\
+8018b7718d6b"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association["boxes" -> FormBox[
+       RowBox[{
+         StyleBox["H", "TI"], "\[LongEqual]", 
+         StyleBox["f", "TI"], 
+         RowBox[{"(", 
+           StyleBox["t", "TI"], ")"}], 
+         SubscriptBox[
+          StyleBox["S", "TI"], "+"], "exp", 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["i", "TI"], "\[Eta]", 
+             RowBox[{"(", 
+               RowBox[{
+                 StyleBox["a", "TI"], 
+                 SuperscriptBox[
+                  StyleBox["e", "TI"], 
+                  RowBox[{"-", 
+                    StyleBox["i", "TI"], 
+                    StyleBox["v", "TI"], 
+                    StyleBox["t", "TI"]}]], "+", 
+                 SuperscriptBox[
+                  StyleBox["a", "TI"], "\[Dagger]"], 
+                 SuperscriptBox[
+                  StyleBox["e", "TI"], 
+                  RowBox[{
+                    StyleBox["i", "TI"], 
+                    StyleBox["v", "TI"], 
+                    StyleBox["t", "TI"]}]]}], ")"}]}], ")"}], "+", 
+         StyleBox["H.c.", FontSlant -> "Plain"]}], TraditionalForm], 
+     "errors" -> {}, "input" -> 
+     "H=f(t) S_{+} \\exp \\left(i \\eta\\left(a e^{-i v t}+a^{\\dagger} e^{i \
+v t}\\right)\\right)+\\mathrm{H.c.}", "state" -> "Boxes"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "d967b4d9-21a3-4be0-b5a5-e41f61fcfb0e"],
+ "\n\nThis is the Hamiltonian in the interaction picture for one motional \
+mode driven by an external laser\nWe can expand the exponential function as :\
+\n\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association["boxes" -> FormBox[
+       RowBox[{"exp", 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["i", "TI"], "\[Eta]", 
+             RowBox[{"(", 
+               RowBox[{
+                 StyleBox["a", "TI"], 
+                 SuperscriptBox[
+                  StyleBox["e", "TI"], 
+                  RowBox[{"-", 
+                    StyleBox["i", "TI"], 
+                    StyleBox["v", "TI"], 
+                    StyleBox["t", "TI"]}]], "+", 
+                 SuperscriptBox[
+                  StyleBox["a", "TI"], "\[Dagger]"], 
+                 SuperscriptBox[
+                  StyleBox["e", "TI"], 
+                  RowBox[{
+                    StyleBox["i", "TI"], 
+                    StyleBox["v", "TI"], 
+                    StyleBox["t", "TI"]}]]}], ")"}]}], ")"}], "\[LongEqual]", 
+         
+         SuperscriptBox[
+          StyleBox["e", "TI"], 
+          RowBox[{"-", 
+            SuperscriptBox["\[Eta]", "2"], "/", "2"}]], 
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{
+            StyleBox["k", "TI"], "\[LongEqual]", "-", "\[Infinity]"}], 
+          "\[Infinity]", LimitsPositioning -> True], 
+         SubscriptBox[
+          StyleBox["D", "TI"], 
+          StyleBox["k", "TI"]], 
+         RowBox[{"(", "\[Eta]", ")"}], 
+         SuperscriptBox[
+          StyleBox["e", "TI"], 
+          RowBox[{
+            StyleBox["i", "TI"], 
+            StyleBox["k", "TI"], 
+            StyleBox["v", "TI"], 
+            StyleBox["t", "TI"]}]]}], TraditionalForm], "errors" -> {}, 
+     "input" -> 
+     "\\exp \\left(i \\eta\\left(a e^{-i v t}+a^{\\dagger} e^{i v \
+t}\\right)\\right)=e^{-\\eta^{2} / 2} \\sum_{k=-\\infty}^{\\infty} \
+D_{k}(\\eta) e^{i k v t}", "state" -> "Boxes"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "a0dd915d-1729-4f8e-90b2-411596f49af4"],
+ "\nwhere \n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association["boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["D", "TI"], 
+          StyleBox["k", "TI"]], 
+         RowBox[{"(", "\[Eta]", ")"}], "\[LongEqual]", 
+         UnderoverscriptBox["\[Sum]", 
+          RowBox[{
+            StyleBox["n", "TI"], "\[LongEqual]", "0"}], "\[Infinity]", 
+          LimitsPositioning -> True], 
+         SuperscriptBox[
+          RowBox[{"(", 
+            RowBox[{
+              StyleBox["i", "TI"], "\[Eta]"}], ")"}], 
+          RowBox[{"2", 
+            StyleBox["n", "TI"], "+", 
+            StyleBox["k", "TI"]}]], 
+         FractionBox[
+          SuperscriptBox[
+           StyleBox["a", "TI"], 
+           SuperscriptBox["\[Dagger]", 
+            RowBox[{
+              StyleBox["n", "TI"], "+", 
+              StyleBox["k", "TI"]}]]], 
+          RowBox[{
+            RowBox[{"(", 
+              RowBox[{
+                StyleBox["n", "TI"], "+", 
+                StyleBox["k", "TI"]}], ")"}], "!"}]], 
+         FractionBox[
+          SuperscriptBox[
+           StyleBox["a", "TI"], 
+           StyleBox["n", "TI"]], 
+          RowBox[{
+            StyleBox["n", "TI"], "!"}]], "  ", " for ", 
+         StyleBox["k", "TI"], "\[GreaterEqual]", "0"}], TraditionalForm], 
+     "errors" -> {}, "input" -> 
+     "\\mathcal{D}_{k}(\\eta)=\\sum_{n=0}^{\\infty}(i \\eta)^{2 n+k} \
+\\frac{a^{\\dagger^{n+k}}}{(n+k) !} \\frac{a^{n}}{n !} \\quad \\text { for } \
+k \\geq 0", "state" -> "Boxes"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "c7426d2f-9e2d-4882-b286-f0454454489d"],
+ "\nand also \n\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association["boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["D", "TI"], 
+          RowBox[{"-", 
+            StyleBox["k", "TI"]}]], 
+         RowBox[{"(", "\[Eta]", ")"}], "\[LongEqual]", 
+         SubsuperscriptBox[
+          StyleBox["D", "TI"], 
+          StyleBox["k", "TI"], "\[Dagger]"], 
+         RowBox[{"(", 
+           RowBox[{"-", "\[Eta]"}], ")"}]}], TraditionalForm], "errors" -> {},
+      "input" -> "D_{-k}(\\eta) = D_k^{\\dagger}(-\\eta)", "state" -> "Boxes"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "fd61950c-feaf-4afa-ab3f-8e5fed130cdf"],
+ "\n\nfinally, we can rewrite the Hamiltonian as :\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[Association["boxes" -> FormBox[
+       RowBox[{
+         SubscriptBox[
+          StyleBox["H", "TI"], 
+          StyleBox["s", "TI"]], "\[LongEqual]", 
+         FractionBox["1", "\[Eta]"], 
+         SubscriptBox[
+          StyleBox["S", "TI"], 
+          StyleBox["y", "TI"]], 
+         UnderscriptBox["\[Sum]", 
+          StyleBox["k", "TI"], LimitsPositioning -> True], 
+         RowBox[{"(", 
+           RowBox[{
+             SubscriptBox[
+              StyleBox["f", "TI"], 
+              StyleBox["k", "TI"]], 
+             RowBox[{"(", 
+               StyleBox["t", "TI"], ")"}], 
+             SubscriptBox[
+              StyleBox["D", "TI"], 
+              StyleBox["k", "TI"]], 
+             RowBox[{"(", "\[Eta]", ")"}], "+", 
+             SubsuperscriptBox[
+              StyleBox["f", "TI"], 
+              StyleBox["k", "TI"], "*"], 
+             RowBox[{"(", 
+               StyleBox["t", "TI"], ")"}], 
+             SubsuperscriptBox[
+              StyleBox["D", "TI"], 
+              StyleBox["k", "TI"], "\[Dagger]"], 
+             RowBox[{"(", "\[Eta]", ")"}]}], ")"}]}], TraditionalForm], 
+     "errors" -> {}, "input" -> 
+     "H_{s}=\\frac{1}{\\eta} S_{y} \\sum_{k}\\left(f_{k}(t) \\mathcal{D}_{k}(\
+\\eta)+f_{k}^{*}(t) \\mathcal{D}_{k}^{\\dagger}(\\eta)\\right)", "state" -> 
+     "Boxes"],
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "067b7874-7cf7-4a97-91df-c0e8d64faed1"]
+}], "Text",
+ CellChangeTimes->{
+  3.827391161261511*^9},ExpressionUUID->"75dd0dbb-c76f-41b9-8756-\
+66c1265abfd6"],
+
+Cell[CellGroupData[{
+
+Cell["Taylor expanding the MS Hamiltonian", "Subtitle",
+ CellChangeTimes->{{3.8273758739730463`*^9, 
+  3.827375883980029*^9}},ExpressionUUID->"e5c35e30-bbf2-41d1-916c-\
+18a51800e9fe"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", 
+   RowBox[{
+   "a", ",", "\[Eta]", ",", "n", ",", "k", ",", "f", ",", " ", "ass"}], "]"}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{"$Assumptions", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Element", "[", 
+     RowBox[{"a", ",", 
+      RowBox[{"Matrices", "[", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "2"}], "}"}], "]"}]}], "]"}], ",", 
+    RowBox[{"Element", "[", 
+     RowBox[{"a\[Dagger]", ",", 
+      RowBox[{"Matrices", "[", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "2"}], "}"}], "]"}]}], "]"}], ",", " ", 
+    RowBox[{"a\[Dagger]", " ", "\[Equal]", 
+     RowBox[{"ConjugateTranspose", "[", "a", "]"}]}], ",", " ", 
+    RowBox[{"a", " ", "\[Equal]", 
+     RowBox[{"ConjugateTranspose", "[", "a\[Dagger]", "]"}]}], ",", " ", 
+    RowBox[{"Element", "[", 
+     RowBox[{"\[Eta]", ",", " ", "Reals"}], "]"}], ",", "  ", 
+    RowBox[{"f", "\[Equal]", " ", 
+     RowBox[{"SuperStar", "[", 
+      RowBox[{"SuperStar", "[", "f", "]"}], "]"}]}]}], "}"}]}]}], "Input",
+ CellChangeTimes->{{3.827391183373261*^9, 3.827391272985078*^9}, {
+  3.827391377193631*^9, 3.827391395559566*^9}, {3.827391438185501*^9, 
+  3.8273914570150146`*^9}},
+ CellLabel->
+  "In[353]:=",ExpressionUUID->"c13e6942-800b-4727-b056-3ae07fce0276"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"a", "\[Element]", 
+    RowBox[{"Matrices", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"2", ",", "2"}], "}"}], ",", 
+      TemplateBox[{},
+       "Complexes"], ",", 
+      RowBox[{"{", "}"}]}], "]"}]}], ",", 
+   RowBox[{"a\[Dagger]", "\[Element]", 
+    RowBox[{"Matrices", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"2", ",", "2"}], "}"}], ",", 
+      TemplateBox[{},
+       "Complexes"], ",", 
+      RowBox[{"{", "}"}]}], "]"}]}], ",", 
+   RowBox[{"a\[Dagger]", "\[Equal]", 
+    RowBox[{"ConjugateTranspose", "[", "a", "]"}]}], ",", 
+   RowBox[{"a", "\[Equal]", 
+    RowBox[{"ConjugateTranspose", "[", "a\[Dagger]", "]"}]}], ",", 
+   RowBox[{"\[Eta]", "\[Element]", 
+    TemplateBox[{},
+     "Reals"]}], ",", 
+   RowBox[{"f", "\[Equal]", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      SuperscriptBox["f", "*"], ")"}], "*"]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.82739128388667*^9, 3.827391395885277*^9, 
+  3.827391458524273*^9, 3.8273921535323067`*^9},
+ CellLabel->
+  "Out[354]=",ExpressionUUID->"dab5010f-d63e-417a-9648-c82ee47fd476"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"d", "[", "k_", "]"}], " ", "=", " ", 
+  RowBox[{"Simplify", "[", 
+   RowBox[{"Sum", "[", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"I", " ", "\[Eta]"}], ")"}], 
+       RowBox[{
+        RowBox[{"2", "n"}], "+", "k"}]], 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"SuperDagger", "[", "a", "]"}], ")"}], 
+         RowBox[{"n", "+", "k"}]], 
+        SuperscriptBox["a", "n"]}], 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"n", "+", "k"}], ")"}], "!"}], "*", 
+        RowBox[{"n", "!"}]}]]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", "2"}], "}"}]}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.827391304443108*^9, 3.827391306825864*^9}, {
+  3.827392007978551*^9, 3.827392028793894*^9}, {3.827394922685072*^9, 
+  3.827394943101592*^9}, {3.8273950161739473`*^9, 3.827395019541429*^9}},
+ CellLabel->
+  "In[388]:=",ExpressionUUID->"169e2fc5-af19-432f-bc03-1dce9426cec0"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "2"], " ", "a", " ", 
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{"\[ImaginaryI]", " ", "\[Eta]"}], ")"}], "k"], " ", 
+  SuperscriptBox["\[Eta]", "2"], " ", 
+  SuperscriptBox[
+   RowBox[{"(", 
+    SuperscriptBox["a", "\[Dagger]"], ")"}], 
+   RowBox[{"1", "+", "k"}]], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox["2", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "+", "k"}], ")"}], "!"}]]}], "+", 
+    FractionBox[
+     RowBox[{"a", " ", 
+      SuperscriptBox["\[Eta]", "2"], " ", 
+      SuperscriptBox["a", "\[Dagger]"]}], 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"2", "+", "k"}], ")"}], "!"}]]}], ")"}]}]], "Output",
+ CellChangeTimes->{
+  3.827391309305945*^9, 3.8273913985660553`*^9, 3.827391462141529*^9, {
+   3.827392008923064*^9, 3.827392029311262*^9}, 3.8273921550734863`*^9, 
+   3.8273950415836563`*^9},
+ CellLabel->
+  "Out[388]=",ExpressionUUID->"a4c67037-8817-469f-8f21-dbfe5c50cdf2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"H", " ", "=", 
+  RowBox[{
+   FractionBox["1", "\[Eta]"], "Sy", " ", 
+   RowBox[{"Sum", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"f", " ", 
+       RowBox[{"d", "[", "k", "]"}]}], " ", "+", " ", 
+      RowBox[{
+       RowBox[{"SuperStar", "[", "f", "]"}], " ", 
+       RowBox[{"SuperDagger", "[", 
+        RowBox[{"d", "[", "k", "]"}], "]"}]}]}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", " ", "0", ",", " ", "1"}], "}"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.827391323375791*^9, 3.827391334527947*^9}, {
+  3.8273914153270903`*^9, 3.827391426197463*^9}, {3.827395047573161*^9, 
+  3.827395049333673*^9}},
+ CellLabel->
+  "In[393]:=",ExpressionUUID->"b55a0de2-61c4-4060-8e77-5b5acce51df7"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["1", "\[Eta]"], 
+  RowBox[{"Sy", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", "a", " ", "f", " ", 
+      SuperscriptBox["\[Eta]", "3"], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        SuperscriptBox["a", "\[Dagger]"], ")"}], "2"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        RowBox[{
+         FractionBox["1", "6"], " ", "a", " ", 
+         SuperscriptBox["\[Eta]", "2"], " ", 
+         SuperscriptBox["a", "\[Dagger]"]}]}], ")"}]}], "+", 
+     RowBox[{
+      FractionBox["1", "2"], " ", "a", " ", "f", " ", 
+      SuperscriptBox["\[Eta]", "2"], " ", 
+      SuperscriptBox["a", "\[Dagger]"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "2"}], "+", 
+        RowBox[{
+         FractionBox["1", "2"], " ", "a", " ", 
+         SuperscriptBox["\[Eta]", "2"], " ", 
+         SuperscriptBox["a", "\[Dagger]"]}]}], ")"}]}], "+", 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", "a", " ", 
+         SuperscriptBox["\[Eta]", "3"], " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           SuperscriptBox["a", "\[Dagger]"], ")"}], "2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           RowBox[{
+            FractionBox["1", "6"], " ", "a", " ", 
+            SuperscriptBox["\[Eta]", "2"], " ", 
+            SuperscriptBox["a", "\[Dagger]"]}]}], ")"}]}], ")"}], 
+       "\[Dagger]"], " ", 
+      SuperscriptBox["f", "*"]}], "+", 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], " ", "a", " ", 
+         SuperscriptBox["\[Eta]", "2"], " ", 
+         SuperscriptBox["a", "\[Dagger]"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "2"}], "+", 
+           RowBox[{
+            FractionBox["1", "2"], " ", "a", " ", 
+            SuperscriptBox["\[Eta]", "2"], " ", 
+            SuperscriptBox["a", "\[Dagger]"]}]}], ")"}]}], ")"}], 
+       "\[Dagger]"], " ", 
+      SuperscriptBox["f", "*"]}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{
+  3.827391336201482*^9, {3.827391399896117*^9, 3.827391463419991*^9}, {
+   3.827392018347424*^9, 3.82739203237652*^9}, 3.8273921576909237`*^9, {
+   3.827395043518981*^9, 3.827395066941427*^9}},
+ CellLabel->
+  "Out[393]=",ExpressionUUID->"c19b18a9-a3b1-459f-a319-c813f8a58b79"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 701},
+WindowMargins->{{20, Automatic}, {Automatic, 44}},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"07325ecc-caf6-4b83-88dd-173096811e88"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 184, 3, 160, "Title",ExpressionUUID->"c70dcb02-a98f-453d-8499-15b2f2f41ca9"],
+Cell[767, 27, 183, 3, 53, "Subtitle",ExpressionUUID->"f112a71f-f8c7-45ef-bef1-8018b7718d6b"],
+Cell[953, 32, 7386, 196, 405, "Text",ExpressionUUID->"75dd0dbb-c76f-41b9-8756-66c1265abfd6"],
+Cell[CellGroupData[{
+Cell[8364, 232, 183, 3, 53, "Subtitle",ExpressionUUID->"e5c35e30-bbf2-41d1-916c-18a51800e9fe"],
+Cell[CellGroupData[{
+Cell[8572, 239, 1287, 32, 94, "Input",ExpressionUUID->"c13e6942-800b-4727-b056-3ae07fce0276"],
+Cell[9862, 273, 1115, 33, 56, "Output",ExpressionUUID->"dab5010f-d63e-417a-9648-c82ee47fd476"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11014, 311, 1051, 30, 53, "Input",ExpressionUUID->"169e2fc5-af19-432f-bc03-1dce9426cec0"],
+Cell[12068, 343, 986, 30, 57, "Output",ExpressionUUID->"a4c67037-8817-469f-8f21-dbfe5c50cdf2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13091, 378, 739, 20, 50, "Input",ExpressionUUID->"b55a0de2-61c4-4060-8e77-5b5acce51df7"],
+Cell[13833, 400, 2489, 69, 115, "Output",ExpressionUUID->"c19b18a9-a3b1-459f-a319-c813f8a58b79"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
